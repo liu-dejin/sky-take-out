@@ -24,13 +24,5 @@ public class DishFlavorServiceImpl implements DishFlavorService {
         dishFlavorMapper.insertBatch(flavors);
     }
 
-    /**
-     * 根据菜品id删除口味
-     *
-     * @param DishId
-     */
-    @Override
-    public void deleteByDishId(Long DishId) {
-        dishFlavorMapper.deleteByDishId(DishId);
-    }
+
 }

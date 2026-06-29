@@ -47,10 +47,24 @@ public interface DishMapper {
     @Select("select * from dish where id = #{id};")
     Dish getByid(Long id);
 
+    // /**
+    //  * 根据主键删除菜品
+    //  * @param id
+    //  */
+    // @Delete("delete from dish where id = #{id};")
+    // void deleteById(Long id);
+
+
     /**
-     * 根据主键删除菜品
-     * @param id
+     * 根据菜品id集合批量删除
+     * @param ids
      */
-    @Delete("delete from dish where id = #{id};")
-    void deleteById(Long id);
+    void deleteBatch(List<Long> ids);
+
+    /**
+     * 更新基本信息
+     *  @param dish
+     */
+    @AutoFill(OperationType.UPDATE)
+    void update(Dish dish);
 }
