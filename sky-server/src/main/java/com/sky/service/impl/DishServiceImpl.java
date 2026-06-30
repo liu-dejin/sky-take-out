@@ -6,13 +6,13 @@ import com.sky.constant.MessageConstant;
 import com.sky.constant.StatusConstant;
 import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
+import com.sky.dto.DishQueryDTO;
 import com.sky.entity.Dish;
 import com.sky.entity.DishFlavor;
 import com.sky.exception.DeletionNotAllowedException;
 import com.sky.mapper.DishFlavorMapper;
 import com.sky.mapper.DishMapper;
 import com.sky.mapper.SetmealDishMapper;
-import com.sky.mapper.SetmealMapper;
 import com.sky.result.PageResult;
 import com.sky.service.DishFlavorService;
 import com.sky.service.DishService;
@@ -155,5 +155,16 @@ public class DishServiceImpl implements DishService {
             // 口味表插入n条数据
             dishFlavorService.insertBatch(flavors);
         }
+    }
+
+    /**
+     * 动态查询菜品
+     *
+     * @param dishQueryDTO
+     * @return
+     */
+    @Override
+    public List<Dish> getDish(DishQueryDTO dishQueryDTO) {
+        return dishMapper.getDish(dishQueryDTO);
     }
 }
